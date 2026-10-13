@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy - AI Learning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+            <span>StudyBuddy</span>
+        </div>
+
+        <button class="new-chat-button" id="new-chat">
+            <span>＋</span> New chat
+        </button>
+
+        <div class="sidebar-section-title">YOUR WORKSPACE</div>
+
+        <div class="sidebar-item active">
+            <span>◷</span> Current conversation
+        </div>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="sidebar-note">
+            <div class="note-icon">✦</div>
+            <div>
+                <strong>Your AI study partner</strong>
+                <p>Learn something new every day.</p>
+            </div>
+        </div>
+
+        <button class="sidebar-clear-button" id="clear-chat">
+            <span>♲</span> Clear current chat
+        </button>
+
+        <div class="sidebar-footer">
+            <div class="avatar">S</div>
+            <div>
+                <strong>StudyBuddy</strong>
+                <p>Personal learning assistant</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main application -->
+    <main class="main-panel">
+
+        <header class="topbar">
+            <button class="mobile-menu" id="mobile-menu"
+                    aria-label="Toggle sidebar">☰</button>
+            <div class="topbar-title">AI Learning Space</div>
+            <div class="status">
+                <span class="status-dot"></span> AI assistant
+            </div>
+        </header>
+
+        <section class="chat-area">
+            <div class="chat-content">
+
+                <div class="welcome" id="welcome">
+                    <div class="welcome-symbol">✦</div>
+                    <p class="eyebrow">YOUR PERSONAL AI TUTOR</p>
+                    <h1>What would you like to<br>learn today?</h1>
+                    <p class="welcome-description">
+                        Ask questions, practice coding, or explore
+                        a new topic. Let's learn one step at a time.
+                    </p>
+
+                    <div class="suggestion-grid">
+                        <button class="suggestion-card" data-prompt="Teach me Python from the basics with simple examples.">
+                            <span class="suggestion-icon purple">⌘</span>
+                            <strong>Learn Python</strong>
+                            <span>Start with variables and loops</span>
+                            <span class="card-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card" data-prompt="Teach me JavaScript with beginner-friendly examples.">
+                            <span class="suggestion-icon orange">{ }</span>
+                            <strong>Explore JavaScript</strong>
+                            <span>Understand the fundamentals</span>
+                            <span class="card-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card" data-prompt="Give me a beginner-friendly coding practice problem and explain the solution.">
+                            <span class="suggestion-icon green">⌘</span>
+                            <strong>Practice coding</strong>
+                            <span>Solve a problem step by step</span>
+                            <span class="card-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card" data-prompt="Help me make a weekly study plan for learning programming.">
+                            <span class="suggestion-icon blue">▦</span>
+                            <strong>Study planner</strong>
+                            <span>Create a learning routine</span>
+                            <span class="card-arrow">↗</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="chat-box" id="chat-box"
+                     aria-live="polite"></div>
+
+                <div class="loading-indicator" id="loading-indicator"
+                     hidden>
+                    <span></span><span></span><span></span>
+                    <p>StudyBuddy is thinking...</p>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="composer-area">
+            <form class="chat-form" id="chat-form">
+                <textarea
+                    id="message"
+                    rows="1"
+                    placeholder="Message StudyBuddy..."
+                    aria-label="Your message"
+                    required
+                ></textarea>
+
+                <button type="submit" class="send-button"
+                        aria-label="Send message">↑</button>
+            </form>
+
+            <p class="composer-note">
+                StudyBuddy can make mistakes. Check important information.
+            </p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
